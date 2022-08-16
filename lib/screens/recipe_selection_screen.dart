@@ -17,7 +17,7 @@ class RecipeSelectionScreen extends StatelessWidget {
           Padding(padding: EdgeInsets.all(24.5)),
           Text(
             "Coffee Recipes",
-            key: Key("coffee-recipes"),
+            key: Key("coffee-recipes-text"),
             style: TextStyle(
               color: Color(0xff4C748B),
               fontSize: 24,
@@ -27,7 +27,18 @@ class RecipeSelectionScreen extends StatelessWidget {
           ),
           Padding(padding: EdgeInsets.all(8)),
           RecipeList(),
-          Text("Resources"),
+          Padding(padding: EdgeInsets.all(15)),
+          Text(
+            "Resources",
+            key: Key("resources-text"),
+            style: TextStyle(
+              color: Color(0xff4C748B),
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Padding(padding: EdgeInsets.all(8)),
           ResourceList()
         ],
       ),
@@ -73,13 +84,25 @@ class RecipeList extends StatelessWidget {
 class ResourceList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          title: Text("Coffee"),
-          trailing: Icon(Icons.chevron_right),
-        )
-      ],
-    );
+    return Container(
+        decoration: new BoxDecoration(
+          border: Border.all(
+            color: Color(0xff4C748B),
+            width: 3,
+          ),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Column(
+          children: [
+            ListTile(
+              title: Text("Coffee",
+                  style: TextStyle(
+                      color: Color(0xff4C748B),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17)),
+              trailing: Icon(Icons.chevron_right),
+            )
+          ],
+        ));
   }
 }
