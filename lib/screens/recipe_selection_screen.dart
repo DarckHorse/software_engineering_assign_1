@@ -27,7 +27,17 @@ class RecipeSelectionScreen extends StatelessWidget {
           ),
           Padding(padding: EdgeInsets.all(8)),
           RecipeList(),
-          Text("Resources"),
+          Padding(padding: EdgeInsets.all(15)),
+          Text(
+            "Resources",
+            key: Key("coffee-recipes"),
+            style: TextStyle(
+              color: Color(0xff4C748B),
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+            ),
+            textAlign: TextAlign.center,
+          ),
           ResourceList()
         ],
       ),
