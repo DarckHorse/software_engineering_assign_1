@@ -17,7 +17,7 @@ class RecipeSelectionScreen extends StatelessWidget {
           Padding(padding: EdgeInsets.all(24.5)),
           Text(
             "Coffee Recipes",
-            key: Key("coffee-recipes"),
+            key: Key("coffee-recipes-text"),
             style: TextStyle(
               color: Color(0xff4C748B),
               fontSize: 24,
@@ -30,7 +30,7 @@ class RecipeSelectionScreen extends StatelessWidget {
           Padding(padding: EdgeInsets.all(15)),
           Text(
             "Resources",
-            key: Key("coffee-recipes"),
+            key: Key("resources-text"),
             style: TextStyle(
               color: Color(0xff4C748B),
               fontSize: 24,
