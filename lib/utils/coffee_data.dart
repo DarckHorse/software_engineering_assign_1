@@ -38,7 +38,10 @@ CoffeeRecipe makeTestRecipe() {
 }
 
 List<CoffeeRecipe> getAllRecipes() {
-  return [makeSweetMariasRecipe(), makeTestRecipe()];
+  return [
+    makeSweetMariasRecipe(),
+    makeTestRecipe(),
+  ];
 }
 
 class CoffeeData {
