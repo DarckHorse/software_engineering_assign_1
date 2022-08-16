@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/screens/recipe_detail_screen.dart';
@@ -27,21 +29,33 @@ class RecipeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        for (CoffeeRecipe recipe in recipes)
-          ListTile(
-              title: Text(recipe.name),
-              trailing: Icon(Icons.chevron_right),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => RecipeDetailScreen(recipe)),
-                );
-              })
-      ],
-    );
+    return Container(
+        decoration: new BoxDecoration(
+          border: Border.all(
+            color: Color(0xff4C748B),
+            width: 3,
+          ),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Column(
+          children: [
+            for (CoffeeRecipe recipe in recipes)
+              ListTile(
+                  title: Text(recipe.name,
+                      style: TextStyle(
+                          color: Color(0xff4C748B),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 17)),
+                  trailing: Icon(Icons.chevron_right),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RecipeDetailScreen(recipe)),
+                    );
+                  }),
+          ],
+        ));
   }
 }
 
