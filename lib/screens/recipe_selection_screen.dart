@@ -104,7 +104,7 @@ class ResourceList extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       fontSize: 17)),
               trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
-            )
+            ),
           ],
         ));
   }

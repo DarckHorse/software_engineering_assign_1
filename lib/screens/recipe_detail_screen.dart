@@ -17,9 +17,48 @@ class RecipeDetailScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Text(recipe.name),
-          Text("${recipe.coffeeVolumeGrams}"),
-          Text("${recipe.waterVolumeGrams}"),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(19, 53, 19, 450),
+            child: Container(
+              height: 164,
+              width: 337,
+              decoration: BoxDecoration(
+                  border: Border.all(width: 2, color: Color(0xFF4C748B)),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(recipe.name),
+                  ),
+                  Container(
+                    width: 293,
+                    child: Divider(
+                      color: Color(0xFF4C748B),
+                      thickness: 1,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 17),
+                    child: Text(
+                        "${recipe.coffeeVolumeGrams}g - ${recipe.grindSize}"),
+                  ),
+                  Text("${recipe.waterVolumeGrams}g - water"),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 25),
+                    child: Text(
+                      '${recipe.miscDetails}',
+                      key: Key('enjoy-text'),
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontStyle: FontStyle.italic,
+                          color: Color(0xFF4C748B)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
           RaisedButton(
             child: Text("Start"),
             onPressed: () {
