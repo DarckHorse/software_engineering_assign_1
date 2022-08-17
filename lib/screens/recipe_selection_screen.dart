@@ -96,8 +96,8 @@ class ResourceList extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
-              onTap: () =>
-                  launch('https://insanelygoodrecipes.com/coffee-recipes/'),
+              onTap: () => launch(
+                  'https://www.gourmetcoffees.com/?gclid=CjwKCAjwo_KXBhAaEiwA2RZ8hFEFqJHq246wm35UUSFNHXE53Gmintks5Q7QqzNn4_FhWxmNpdsNVhoCi0YQAvD_BwE'),
               title: Text("Coffee",
                   style: TextStyle(
                       color: Color(0xff4C748B),
