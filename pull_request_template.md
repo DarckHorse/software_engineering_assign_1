@@ -40,11 +40,11 @@
 
 <!-- Before opening the PR ensure that you can check off all of these boxes. -->
 ## Self-Review  Checklist 
-- [ ] I have added unit and/or integration tests to cover my changes, or my changes did not require additional tests
-- [ ] All new and existing tests passed on my local machine.
-- [ ] I did not add unnecessary comments to the code
-- [ ] I did not add unnecessary logging or debugging code (print statements, for example).
-- [ ] Errors are properly handled for code that is risky.
-- [ ] Naming of methods, variables, and classes is proper.
-- [ ] I wrote a description of requested changes.
-- [ ] I performed a self-review of my own code.
+- [] I have added unit and/or integration tests to cover my changes, or my changes did not require additional tests
+- [] All new and existing tests passed on my local machine.
+- [] I did not add unnecessary comments to the code
+- [] I did not add unnecessary logging or debugging code (print statements, for example).
+- [] Errors are properly handled for code that is risky.
+- [] Naming of methods, variables, and classes is proper.
+- [] I wrote a description of requested changes.
+- [] I performed a self-review of my own code.
