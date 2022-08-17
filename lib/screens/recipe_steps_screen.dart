@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
 import 'package:homebrew_dripper/screens/done_screen.dart';
-import 'package:homebrew_dripper/utils/coffee_data.dart';
 
 class RecipeStepsScreen extends StatefulWidget {
   CoffeeRecipe recipe;
@@ -104,7 +103,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
                     fontWeight: FontWeight.w400),
               )),
           Padding(
-              padding: EdgeInsets.only(top: 8, left: 23),
+              padding: EdgeInsets.only(top: 8, left: 23, right: 23),
               child: Column(children: [
                 for (RecipeStep step in remainingSteps)
                   (step == remainingSteps[0])
