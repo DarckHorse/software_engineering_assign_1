@@ -114,6 +114,26 @@ class ResourceList extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       fontSize: 17)),
               trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
+            ),
+            ListTile(
+              onTap: () =>
+                  launch('https://nypost.com/article/best-tea-kettles/'),
+              title: Text("Kettles",
+                  style: TextStyle(
+                      color: Color(0xff4C748B),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17)),
+              trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
+            ),
+            ListTile(
+              onTap: () => launch(
+                  'https://www.homegrounds.co/best-pour-over-coffee-makers/'),
+              title: Text("Homebrew Dripper",
+                  style: TextStyle(
+                      color: Color(0xff4C748B),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17)),
+              trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
             )
           ],
         ));
