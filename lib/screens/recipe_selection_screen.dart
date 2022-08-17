@@ -104,6 +104,16 @@ class ResourceList extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       fontSize: 17)),
               trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
+            ),
+            ListTile(
+              onTap: () => launch(
+                  'https://nymag.com/strategist/article/best-coffee-grinders.html'),
+              title: Text("Grinders",
+                  style: TextStyle(
+                      color: Color(0xff4C748B),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17)),
+              trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
             )
           ],
         ));
