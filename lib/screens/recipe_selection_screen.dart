@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/screens/recipe_detail_screen.dart';
 import 'package:homebrew_dripper/utils/coffee_data.dart';
@@ -68,7 +69,7 @@ class RecipeList extends StatelessWidget {
                           color: Color(0xff4C748B),
                           fontWeight: FontWeight.w500,
                           fontSize: 17)),
-                  trailing: Icon(Icons.chevron_right),
+                  trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -95,12 +96,14 @@ class ResourceList extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
+              onTap: () =>
+                  launch('https://insanelygoodrecipes.com/coffee-recipes/'),
               title: Text("Coffee",
                   style: TextStyle(
                       color: Color(0xff4C748B),
                       fontWeight: FontWeight.w500,
                       fontSize: 17)),
-              trailing: Icon(Icons.chevron_right),
+              trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
             )
           ],
         ));
