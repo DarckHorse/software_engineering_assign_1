@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
 import 'package:homebrew_dripper/screens/done_screen.dart';
+import 'package:homebrew_dripper/utils/coffee_data.dart';
 
 class RecipeStepsScreen extends StatefulWidget {
   CoffeeRecipe recipe;
@@ -72,14 +73,79 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
     RecipeStep currentRecipeStep = widget.recipe.steps[currentStep];
 
     return Scaffold(
-      
+      backgroundColor: Color(0xff4C748B),
       body: ListView(
         children: [
-          Text("${currentRecipeStep.text}"),
-          Text("${stepTimeRemaining}"),
-          Text("Steps"),
-          for (RecipeStep step in remainingSteps)
-            ListTile(title: Text(step.text))
+          Padding(
+            padding: EdgeInsets.all(40.5),
+          ),
+          Text(
+            "$stepTimeRemaining",
+            style: TextStyle(
+                color: Colors.white, fontSize: 96, fontWeight: FontWeight.w400),
+            textAlign: TextAlign.center,
+          ),
+          Padding(
+            padding: EdgeInsets.all(21.5),
+          ),
+          Text(
+            "${currentRecipeStep.text}",
+            style: TextStyle(
+                color: Colors.white, fontSize: 24, fontWeight: FontWeight.w400),
+            textAlign: TextAlign.center,
+          ),
+          Padding(
+              padding: EdgeInsets.only(top: 22, left: 23),
+              child: Text(
+                "Steps",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
+              )),
+          Padding(
+              padding: EdgeInsets.only(top: 8, left: 23),
+              child: Column(children: [
+                for (RecipeStep step in remainingSteps)
+                  (step == remainingSteps[0])
+                      ? ListTile(
+                          title: Text(
+                            step.text,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          trailing: Text(
+                            step.time.toString(),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          visualDensity: VisualDensity(vertical: -3),
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.white, width: 1),
+                              borderRadius: BorderRadius.circular(10.0)),
+                        )
+                      : ListTile(
+                          title: Text(
+                            step.text,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          trailing: Text(
+                            step.time.toString(),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          visualDensity: VisualDensity(vertical: -3),
+                        )
+              ]))
         ],
       ),
     );

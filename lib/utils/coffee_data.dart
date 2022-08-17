@@ -21,11 +21,11 @@ CoffeeRecipe makeSweetMariasRecipe() {
 
 CoffeeRecipe makeTestRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 5),
-    RecipeStep("Cover and wait", 5),
-    RecipeStep("Stir", 5),
-    RecipeStep("Cover and wait", 5),
-    RecipeStep("Stir", 5),
+    RecipeStep("Add 360g water", 05),
+    RecipeStep("Cover and wait", 05),
+    RecipeStep("Stir", 05),
+    RecipeStep("Cover and wait", 05),
+    RecipeStep("Stir", 05),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
       "Test Recipe",
