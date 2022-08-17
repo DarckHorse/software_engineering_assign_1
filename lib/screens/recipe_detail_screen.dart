@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
+import 'package:homebrew_dripper/models/recipe_step.dart';
 import 'package:homebrew_dripper/screens/recipe_steps_screen.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
@@ -12,26 +13,56 @@ class RecipeDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Recipe Details"),
-      ),
-      body: ListView(
-        children: [
+        appBar: AppBar(
+          title: Text("Recipe Details"),
+        ),
+        body: ListView(children: [
           Text(recipe.name),
           Text("${recipe.coffeeVolumeGrams}"),
           Text("${recipe.waterVolumeGrams}"),
-          RaisedButton(
-            child: Text("Start"),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => RecipeStepsScreen(recipe)),
-              );
-            },
+          Padding(
+            padding: EdgeInsets.only(top: 8, left: 23, right: 23),
+            child: Column(
+              children: [
+                for (RecipeStep step in recipe.steps)
+                  Padding(
+                      padding: EdgeInsets.all(6),
+                      child: ListTile(
+                        title: Text(
+                          step.text,
+                          style: TextStyle(
+                              color: Color(0xff4C748B),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        shape: RoundedRectangleBorder(
+                            side:
+                                BorderSide(color: Color(0xff4C748B), width: 1),
+                            borderRadius: BorderRadius.circular(10.0)),
+                        trailing: Text(
+                          step.time.toString(),
+                          style: TextStyle(
+                              color: Color(0xff4C748B),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        dense: true,
+                        visualDensity: VisualDensity(vertical: -3),
+                      )),
+                Padding(padding: EdgeInsets.all(46)),
+                RaisedButton(
+                  child: Text("Start"),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RecipeStepsScreen(recipe)),
+                    );
+                  },
+                )
+              ],
+            ),
           )
-        ],
-      ),
-    );
+        ]));
   }
 }
