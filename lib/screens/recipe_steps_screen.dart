@@ -104,7 +104,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
                     fontWeight: FontWeight.w400),
               )),
           Padding(
-              padding: EdgeInsets.only(top: 8, left: 23),
+              padding: EdgeInsets.only(top: 8, left: 23, right: 23),
               child: Column(children: [
                 for (RecipeStep step in remainingSteps)
                   (step == remainingSteps[0])
@@ -117,7 +117,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
                                 fontWeight: FontWeight.w400),
                           ),
                           trailing: Text(
-                            step.time.toString(),
+                            CoffeeData.secToTime(step.time),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
@@ -137,7 +137,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
                                 fontWeight: FontWeight.w400),
                           ),
                           trailing: Text(
-                            step.time.toString(),
+                            CoffeeData.secToTime(step.time),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,

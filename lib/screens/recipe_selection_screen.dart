@@ -10,9 +10,7 @@ class RecipeSelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Recipe Selection"),
-      ),
+      
       body: ListView(
         children: [
           Padding(padding: EdgeInsets.all(24.5)),
@@ -21,7 +19,7 @@ class RecipeSelectionScreen extends StatelessWidget {
             key: Key("coffee-recipes-text"),
             style: TextStyle(
               color: Color(0xff4C748B),
-              fontSize: 24,
+              fontSize: 25,
               fontWeight: FontWeight.w700,
             ),
             textAlign: TextAlign.center,
@@ -34,7 +32,7 @@ class RecipeSelectionScreen extends StatelessWidget {
             key: Key("resources-text"),
             style: TextStyle(
               color: Color(0xff4C748B),
-              fontSize: 24,
+              fontSize: 25,
               fontWeight: FontWeight.w700,
             ),
             textAlign: TextAlign.center,
@@ -59,17 +57,20 @@ class RecipeList extends StatelessWidget {
             width: 3,
           ),
           borderRadius: BorderRadius.circular(10.0),
+          
         ),
         child: Column(
           children: [
-            for (CoffeeRecipe recipe in recipes)
+            
+            for (CoffeeRecipe recipe in recipes) 
               ListTile(
                   title: Text(recipe.name,
                       style: TextStyle(
                           color: Color(0xff4C748B),
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                           fontSize: 17)),
                   trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
+                  
                   onTap: () {
                     Navigator.push(
                       context,
@@ -79,6 +80,7 @@ class RecipeList extends StatelessWidget {
                   }),
           ],
         ));
+        
   }
 }
 
@@ -101,7 +103,58 @@ class ResourceList extends StatelessWidget {
               title: Text("Coffee",
                   style: TextStyle(
                       color: Color(0xff4C748B),
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 17)),
+              trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
+            ),
+             Container(                    
+                    height: 1,
+                    child: Divider(
+                      color: Color(0xFF4C748B),
+                      thickness: 1,
+                    ),
+                  ),
+            ListTile(
+              onTap: () => launch(
+                  'https://nymag.com/strategist/article/best-coffee-grinders.html'),
+              title: Text("Grinders",
+                  style: TextStyle(
+                      color: Color(0xff4C748B),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 17)),
+              trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
+            ),
+             Container(                    
+                    height: 1,
+                    child: Divider(
+                      color: Color(0xFF4C748B),
+                      thickness: 1,
+                    ),
+                  ),
+            ListTile(
+              onTap: () =>
+                  launch('https://nypost.com/article/best-tea-kettles/'),
+              title: Text("Kettles",
+                  style: TextStyle(
+                      color: Color(0xff4C748B),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 17)),
+              trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
+            ),
+             Container(                    
+                    height: 1,
+                    child: Divider(
+                      color: Color(0xFF4C748B),
+                      thickness: 1,
+                    ),
+                  ),
+            ListTile(
+              onTap: () => launch(
+                  'https://www.homegrounds.co/best-pour-over-coffee-makers/'),
+              title: Text("Homebrew Dripper",
+                  style: TextStyle(
+                      color: Color(0xff4C748B),
+                      fontWeight: FontWeight.w400,
                       fontSize: 17)),
               trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
             ),
