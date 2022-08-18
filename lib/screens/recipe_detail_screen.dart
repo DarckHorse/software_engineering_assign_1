@@ -14,9 +14,22 @@ class RecipeDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Color(0xFF4C748B),
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        elevation: 0.0,
+      ),
       body: ListView(children: [
         Padding(
-            padding: const EdgeInsets.fromLTRB(19, 53, 19, 450),
+            padding: const EdgeInsets.fromLTRB(19, 0, 19, 0),
             child: Container(
                 height: 164,
                 width: 337,
@@ -105,7 +118,6 @@ class RecipeDetailScreen extends StatelessWidget {
                       dense: true,
                       visualDensity: VisualDensity(vertical: -3),
                     )),
-              Padding(padding: EdgeInsets.all(25)),
               Padding(
                 padding: const EdgeInsets.all(25),
                 child: SizedBox(
