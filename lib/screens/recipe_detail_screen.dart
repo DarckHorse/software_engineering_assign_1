@@ -49,16 +49,27 @@ class RecipeDetailScreen extends StatelessWidget {
                         dense: true,
                         visualDensity: VisualDensity(vertical: -3),
                       )),
-                Padding(padding: EdgeInsets.all(46)),
-                RaisedButton(
-                  child: Text("Start"),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RecipeStepsScreen(recipe)),
-                    );
-                  },
+                Padding(padding: EdgeInsets.all(25)),
+                Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: SizedBox(width: 310, height: 50,
+                    child: RaisedButton(
+                      child: Text("Start", style: TextStyle(color:Colors.white)),
+                      color: Color(0xff4C748B),  
+                      shape: RoundedRectangleBorder(
+                              side:
+                                  BorderSide(color: Color(0xff4C748B), width: 1),
+                              borderRadius: BorderRadius.circular(10.0)),
+                      
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RecipeStepsScreen(recipe)),
+                        );
+                      },
+                    ),
+                  ),
                 )
               ],
             ),
