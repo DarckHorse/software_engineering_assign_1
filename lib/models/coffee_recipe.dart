@@ -7,6 +7,7 @@ class CoffeeRecipe {
   int waterVolumeGrams;
   String miscDetails;
   List<RecipeStep> steps;
+  int totalTime = 0;
 
   CoffeeRecipe(name, coffeeVolumeGrams, waterVolumeGrams, grindSize,
       miscDetails, steps) {
@@ -18,5 +19,8 @@ class CoffeeRecipe {
     this.grindSize = grindSize;
     this.miscDetails = miscDetails;
     this.steps = steps;
+    for (RecipeStep step in steps) {
+      totalTime += step.time;
+    }
   }
 }
