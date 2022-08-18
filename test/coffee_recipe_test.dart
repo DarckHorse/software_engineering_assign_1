@@ -8,9 +8,9 @@ void main() {
 
   List<RecipeStep> testSteps = [testStep, testStep];
 
-  CoffeeRecipe testRecipe = new CoffeeRecipe("", -1, 0, "", "", testSteps);
-  CoffeeRecipe nullRecipe =
-      new CoffeeRecipe(null, null, null, null, null, null);
+  // CoffeeRecipe testRecipe = new CoffeeRecipe("", -1, 0, "", "", testSteps);
+  // CoffeeRecipe nullRecipe =
+  //     new CoffeeRecipe(null, null, null, null, null, null);
 
   test('creates a valid coffee recipe', () {
     //make a coffee recipe
