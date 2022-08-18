@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
 import 'package:homebrew_dripper/screens/recipe_steps_screen.dart';
+import 'package:homebrew_dripper/utils/coffee_data.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
   CoffeeRecipe recipe;
@@ -20,6 +21,32 @@ class RecipeDetailScreen extends StatelessWidget {
           Text(recipe.name),
           Text("${recipe.coffeeVolumeGrams}"),
           Text("${recipe.waterVolumeGrams}"),
+          Row(
+            children: [
+              Padding(
+                  padding: EdgeInsets.only(
+                    top: 24,
+                    left: 23,
+                  ),
+                  child: Text("Steps",
+                      style: TextStyle(
+                          color: Color(0xff4C748B),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17))),
+              Spacer(),
+              Padding(
+                  padding: EdgeInsets.only(
+                    right: 35,
+                    top: 24,
+                  ),
+                  child: Text(
+                      "Total: ${CoffeeData.secToTime(recipe.totalTime)}",
+                      style: TextStyle(
+                          color: Color(0xff4C748B),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17)))
+            ],
+          ),
           Padding(
             padding: EdgeInsets.only(top: 8, left: 23, right: 23),
             child: Column(
@@ -40,7 +67,7 @@ class RecipeDetailScreen extends StatelessWidget {
                                 BorderSide(color: Color(0xff4C748B), width: 1),
                             borderRadius: BorderRadius.circular(10.0)),
                         trailing: Text(
-                          step.time.toString(),
+                          CoffeeData.secToTime(step.time),
                           style: TextStyle(
                               color: Color(0xff4C748B),
                               fontSize: 12,

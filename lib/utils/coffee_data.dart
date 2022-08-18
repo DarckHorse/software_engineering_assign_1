@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
 
@@ -75,5 +77,21 @@ List<CoffeeRecipe> getAllRecipes() {
 class CoffeeData {
   static List<CoffeeRecipe> loadRecipes() {
     return getAllRecipes();
+  }
+
+  static String secToTime(int time) {
+    int m, s = 0;
+    String min, sec;
+
+    m = time ~/ 60;
+    s = time - (m * 60);
+
+    min = m.toString().padLeft(2, '0');
+    sec = s.toString().padLeft(2, '0');
+
+    if (time <= 0)
+      throw ArgumentError("Total time is not valid");
+    else
+      return "${min}:${sec}";
   }
 }
