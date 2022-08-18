@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
 import 'package:homebrew_dripper/screens/done_screen.dart';
+import 'package:homebrew_dripper/utils/coffee_data.dart';
 
 class RecipeStepsScreen extends StatefulWidget {
   CoffeeRecipe recipe;
@@ -116,7 +117,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
                                 fontWeight: FontWeight.w400),
                           ),
                           trailing: Text(
-                            step.time.toString(),
+                            CoffeeData.secToTime(step.time),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
@@ -136,7 +137,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
                                 fontWeight: FontWeight.w400),
                           ),
                           trailing: Text(
-                            step.time.toString(),
+                            CoffeeData.secToTime(step.time),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
