@@ -38,8 +38,12 @@ class RecipeDetailScreen extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: Column(children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(recipe.name),
+                    padding: const EdgeInsets.only(top: 8, bottom: 1),
+                    child: Text(recipe.name,
+                        style: TextStyle(
+                            color: Color(0xff4C748B),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 25)),
                   ),
                   Container(
                     width: 293,
@@ -51,16 +55,24 @@ class RecipeDetailScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 17),
                     child: Text(
-                        "${recipe.coffeeVolumeGrams}g - ${recipe.grindSize}"),
+                        "${recipe.coffeeVolumeGrams}g - ${recipe.grindSize}",
+                        style: TextStyle(
+                            color: Color(0xff4C748B),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15)),
                   ),
-                  Text("${recipe.waterVolumeGrams}g - water"),
+                  Text("${recipe.waterVolumeGrams}g - water",
+                      style: TextStyle(
+                          color: Color(0xff4C748B),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 15)),
                   Padding(
                     padding: const EdgeInsets.only(top: 25),
                     child: Text(
                       '${recipe.miscDetails}',
                       key: Key('enjoy-text'),
                       style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 13,
                           fontStyle: FontStyle.italic,
                           color: Color(0xFF4C748B)),
                     ),
