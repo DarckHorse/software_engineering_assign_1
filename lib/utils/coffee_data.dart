@@ -94,4 +94,15 @@ class CoffeeData {
     else
       return "${min}:${sec}";
   }
+
+  static RecipeStep testStep = RecipeStep("", -1);
+  static RecipeStep nullStep = RecipeStep(null, null);
+  static List<RecipeStep> testStepsWithNull = [testStep, nullStep];
+
+  static List<RecipeStep> testSteps = [testStep, testStep];
+
+  static CoffeeRecipe testRecipe =
+      new CoffeeRecipe("", -1, 0, "", "", testSteps);
+  static CoffeeRecipe nullRecipe =
+      new CoffeeRecipe(null, null, null, null, null, testSteps);
 }
