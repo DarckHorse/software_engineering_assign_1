@@ -37,9 +37,37 @@ CoffeeRecipe makeTestRecipe() {
   return recipe;
 }
 
+CoffeeRecipe makeStrongEnoughRecipe() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 43g of coarse ground coffee", 30),
+    RecipeStep("Add 250g hot but not boiling water", 30),
+    RecipeStep("Stir", 05),
+    RecipeStep("Cover and wait", 240),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe("Strong Enough", 43, 250,
+      "coarse ground coffee", "it's bittersweet", steps);
+  return recipe;
+}
+
+CoffeeRecipe makeEspressoRecipe() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 64g of medium-fine ground coffee", 30),
+    RecipeStep("Add 125g hot but not boiling water", 30),
+    RecipeStep("Cover and wait", 120),
+    RecipeStep("Stir", 05),
+    RecipeStep("Cover and wait", 120),
+    RecipeStep("Stir", 05),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe("Espresso", 64, 125,
+      "medium-fine ground coffee", "A kickstart to your day", steps);
+  return recipe;
+}
+
 List<CoffeeRecipe> getAllRecipes() {
   return [
     makeSweetMariasRecipe(),
+    makeEspressoRecipe(),
+    makeStrongEnoughRecipe(),
     makeTestRecipe(),
   ];
 }
