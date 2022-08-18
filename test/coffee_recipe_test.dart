@@ -1,8 +1,17 @@
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
 import 'package:test/test.dart';
+import 'package:homebrew_dripper/utils/coffee_data.dart';
 
 void main() {
+  RecipeStep testStep = RecipeStep("step", 5);
+
+  List<RecipeStep> testSteps = [testStep, testStep];
+
+  // CoffeeRecipe testRecipe = new CoffeeRecipe("", -1, 0, "", "", testSteps);
+  // CoffeeRecipe nullRecipe =
+  //     new CoffeeRecipe(null, null, null, null, null, null);
+
   test('creates a valid coffee recipe', () {
     //make a coffee recipe
 
