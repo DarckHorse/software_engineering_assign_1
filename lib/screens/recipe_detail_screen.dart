@@ -12,20 +12,18 @@ class RecipeDetailScreen extends StatelessWidget {
   RecipeDetailScreen(this.recipe);
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          Padding(
+      body: ListView(children: [
+        Padding(
             padding: const EdgeInsets.fromLTRB(19, 53, 19, 450),
             child: Container(
-              height: 164,
-              width: 337,
-              decoration: BoxDecoration(
-                  border: Border.all(width: 2, color: Color(0xFF4C748B)),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: Column(
-                children: [
+                height: 164,
+                width: 337,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Color(0xFF4C748B)),
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Column(children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(recipe.name),
@@ -52,85 +50,85 @@ class RecipeDetailScreen extends StatelessWidget {
                           fontSize: 12,
                           fontStyle: FontStyle.italic,
                           color: Color(0xFF4C748B)),
-                    ),),])))
-                  
-          Row(
-            children: [
-              Padding(
-                  padding: EdgeInsets.only(
-                    top: 24,
-                    left: 23,
-                  ),
-                  child: Text("Steps",
-                      style: TextStyle(
-                          color: Color(0xff4C748B),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17))),
-              Spacer(),
-              Padding(
-                  padding: EdgeInsets.only(
-                    right: 35,
-                    top: 24,
-                  ),
-                  child: Text(
-                      "Total: ${CoffeeData.secToTime(recipe.totalTime)}",
-                      style: TextStyle(
-                          color: Color(0xff4C748B),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17)))
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 8, left: 23, right: 23),
-            child: Column(
-              children: [
-                for (RecipeStep step in recipe.steps)
-                  Padding(
-                      padding: EdgeInsets.all(6),
-                      child: ListTile(
-                        title: Text(
-                          step.text,
-                          style: TextStyle(
-                              color: Color(0xff4C748B),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        shape: RoundedRectangleBorder(
-                            side:
-                                BorderSide(color: Color(0xff4C748B), width: 1),
-                            borderRadius: BorderRadius.circular(10.0)),
-                        trailing: Text(
-                          CoffeeData.secToTime(step.time),
-                          style: TextStyle(
-                              color: Color(0xff4C748B),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        dense: true,
-                        visualDensity: VisualDensity(vertical: -3),
-                      )),
-                Padding(padding: EdgeInsets.all(25)),
-                Padding(
-                  padding: const EdgeInsets.all(25),
-                  child: SizedBox(width: 310, height: 50,
-                    child: RaisedButton(
-                      child: Text("Start", style: TextStyle(color:Colors.white)),
-                      color: Color(0xff4C748B),  
-                      shape: RoundedRectangleBorder(
-                              side:
-                                  BorderSide(color: Color(0xff4C748B), width: 1),
-                              borderRadius: BorderRadius.circular(10.0)),
-                      
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RecipeStepsScreen(recipe)),
-                        );
-                      },
                     ),
                   ),
-                )]))]),
-            );
+                ]))),
+        Row(
+          children: [
+            Padding(
+                padding: EdgeInsets.only(
+                  top: 24,
+                  left: 23,
+                ),
+                child: Text("Steps",
+                    style: TextStyle(
+                        color: Color(0xff4C748B),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 17))),
+            Spacer(),
+            Padding(
+                padding: EdgeInsets.only(
+                  right: 35,
+                  top: 24,
+                ),
+                child: Text("Total: ${CoffeeData.secToTime(recipe.totalTime)}",
+                    style: TextStyle(
+                        color: Color(0xff4C748B),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 17)))
+          ],
+        ),
+        Padding(
+            padding: EdgeInsets.only(top: 8, left: 23, right: 23),
+            child: Column(children: [
+              for (RecipeStep step in recipe.steps)
+                Padding(
+                    padding: EdgeInsets.all(6),
+                    child: ListTile(
+                      title: Text(
+                        step.text,
+                        style: TextStyle(
+                            color: Color(0xff4C748B),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Color(0xff4C748B), width: 1),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      trailing: Text(
+                        CoffeeData.secToTime(step.time),
+                        style: TextStyle(
+                            color: Color(0xff4C748B),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      dense: true,
+                      visualDensity: VisualDensity(vertical: -3),
+                    )),
+              Padding(padding: EdgeInsets.all(25)),
+              Padding(
+                padding: const EdgeInsets.all(25),
+                child: SizedBox(
+                  width: 310,
+                  height: 50,
+                  child: RaisedButton(
+                    child: Text("Start", style: TextStyle(color: Colors.white)),
+                    color: Color(0xff4C748B),
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Color(0xff4C748B), width: 1),
+                        borderRadius: BorderRadius.circular(10.0)),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RecipeStepsScreen(recipe)),
+                      );
+                    },
+                  ),
+                ),
+              )
+            ]))
+      ]),
+    );
   }
 }
