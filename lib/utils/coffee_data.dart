@@ -22,22 +22,23 @@ CoffeeRecipe makeSweetMariasRecipe() {
   return recipe;
 }
 
-CoffeeRecipe makeTestRecipe() {
+CoffeeRecipe makeBlackEyeRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 360g water", 05),
-    RecipeStep("Cover and wait", 05),
+    RecipeStep("Add 128g of fine ground coffee", 20),
+    RecipeStep("Add 250g of near boiling water", 30),
+    RecipeStep("Cover and wait", 60),
     RecipeStep("Stir", 05),
-    RecipeStep("Cover and wait", 05),
+    RecipeStep("Cover again and wait", 60),
     RecipeStep("Stir", 05),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "Test Recipe",
-      22,
-      360,
+      "Black Eye",
+      128,
+      250,
       "finely ground coffee",
-      "The original recipe: makes one delicious cup",
-      steps,
-      "test-recipe");
+      "It adds a boost of caffeine to your standard coffee experience",
+      steps, "black-eye-recipe");
+
   return recipe;
 }
 
@@ -84,7 +85,7 @@ List<CoffeeRecipe> getAllRecipes() {
     makeSweetMariasRecipe(),
     makeEspressoRecipe(),
     makeStrongEnoughRecipe(),
-    makeTestRecipe(),
+    makeBlackEyeRecipe(),
   ];
 }
 
