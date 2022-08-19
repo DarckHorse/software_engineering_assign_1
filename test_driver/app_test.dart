@@ -110,5 +110,27 @@ void main() {
       // make sure im on the selection screen
       expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
     });
+
+      test('make sure the current step updates and changes', () async {   
+      // make sure you are on the selection screen       
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");       
+      // select test recipe       
+      await driver.tap(coffeeRecipeBtnFinder);       
+      // make sure youre on the detail screen       
+      expect(await driver.getText(enjoyTextFinder),           
+      "It adds a boost of caffeine to your standard coffee experience");       
+      // tap the start button       
+      await driver.tap(startBtnFinder);       
+      // make sure your on the step screen       
+      expect(await driver.getText(stepsTextFinder), "Steps");       
+      // grab the current step       
+      final currentStepTextFinder1 = find.byValueKey('current-step-text');       
+      // wait 3 seconds       
+      await Future.delayed(const Duration(seconds: 3), () {});       
+      // grab the current step       
+      final currentStepTextFinder2 = find.byValueKey('current-step-text');       
+      // compare the 2 current steps       
+      expect(currentStepTextFinder1 != currentStepTextFinder2, true);
+    });
   });
 }
