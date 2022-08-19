@@ -8,9 +8,10 @@ class CoffeeRecipe {
   String miscDetails;
   List<RecipeStep> steps;
   int totalTime = 0;
+  String key;
 
   CoffeeRecipe(name, coffeeVolumeGrams, waterVolumeGrams, grindSize,
-      miscDetails, steps) {
+      miscDetails, steps, key) {
     //add any rules to reject invalid values
     //for example, reject negative gram amounts
 
@@ -55,5 +56,13 @@ class CoffeeRecipe {
     for (RecipeStep step in steps) {
       totalTime += step.time;
     }
+
+    if (key == null)
+      throw ArgumentError("Invalid misc Details input");
+    else if (key == "")
+      throw ArgumentError("Invalid misc Details input");
+    else
+      this.key = key;
+    this.key = key;
   }
 }

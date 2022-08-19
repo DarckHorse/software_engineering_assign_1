@@ -81,6 +81,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
           ),
           Text(
             "$stepTimeRemaining",
+            key: Key('timer-text'),
             style: TextStyle(
                 color: Colors.white, fontSize: 96, fontWeight: FontWeight.w400),
             textAlign: TextAlign.center,
@@ -90,6 +91,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
           ),
           Text(
             "${currentRecipeStep.text}",
+            key: Key('current-step-text'),
             style: TextStyle(
                 color: Colors.white, fontSize: 24, fontWeight: FontWeight.w400),
             textAlign: TextAlign.center,
@@ -98,6 +100,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
               padding: EdgeInsets.only(top: 22, left: 23),
               child: Text(
                 "Steps",
+                key: Key('steps-text'),
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
