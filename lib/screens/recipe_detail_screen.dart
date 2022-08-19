@@ -130,6 +130,7 @@ class RecipeDetailScreen extends StatelessWidget {
                       dense: true,
                       visualDensity: VisualDensity(vertical: -3),
                     )),
+                    
               Padding(
                 padding: const EdgeInsets.all(25),
                 child: SizedBox(
