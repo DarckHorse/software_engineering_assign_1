@@ -63,21 +63,32 @@ class RecipeList extends StatelessWidget {
           children: [
             
             for (CoffeeRecipe recipe in recipes) 
-              ListTile(
-                  title: Text(recipe.name,
-                      style: TextStyle(
-                          color: Color(0xff4C748B),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17)),
-                  trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
-                  
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RecipeDetailScreen(recipe)),
-                    );
-                  }),
+              Column(
+                children: [
+                 Container(                    
+                    height: 1,
+                    child: Divider(
+                      color: Color(0xFF4C748B),
+                      thickness: 1,
+                    ),
+                  ),
+                  ListTile(
+                      title: Text(recipe.name,
+                          style: TextStyle(
+                              color: Color(0xff4C748B),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17)),
+                      trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
+                      
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RecipeDetailScreen(recipe)),
+                        );
+                      }),
+                ],
+              ),
           ],
         ));
         

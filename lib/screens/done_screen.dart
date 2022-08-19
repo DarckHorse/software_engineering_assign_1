@@ -26,7 +26,7 @@ class DoneScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 18), key: Key('done-text')),
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Color(0xFFFFFFFF)),
+                        MaterialStateProperty.all<Color>(Colors.white.withOpacity(0.01),),
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Color(0xFF4C748B)),
                   )),
