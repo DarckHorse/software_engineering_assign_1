@@ -73,11 +73,12 @@ class RecipeList extends StatelessWidget {
                       ),
                       ListTile(
                           title: Text(recipe.name,
-                              key: Key(recipe.key),
+                              key: Key(recipe.key + "-text"),
                               style: TextStyle(
                                   color: Color(0xff4C748B),
                                   fontWeight: FontWeight.w400,
                                   fontSize: 17)),
+                          key: Key(recipe.key),
                           trailing: Icon(Icons.chevron_right,
                               color: Color(0xff4C748B)),
                           onTap: () {
@@ -132,7 +133,7 @@ class ResourceList extends StatelessWidget {
                 onTap: () => launch(
                     'https://nymag.com/strategist/article/best-coffee-grinders.html'),
                 title: Text("Grinders",
-                    key: Key('grinder-link'),
+                    key: Key('grinders-link'),
                     style: TextStyle(
                         color: Color(0xff4C748B),
                         fontWeight: FontWeight.w400,
