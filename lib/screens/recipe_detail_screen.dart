@@ -17,6 +17,7 @@ class RecipeDetailScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
+          key: Key('back-button'),
           icon: Icon(
             Icons.arrow_back_ios,
             color: Color(0xFF4C748B),
@@ -130,13 +131,13 @@ class RecipeDetailScreen extends StatelessWidget {
                       dense: true,
                       visualDensity: VisualDensity(vertical: -3),
                     )),
-                    
               Padding(
                 padding: const EdgeInsets.all(25),
                 child: SizedBox(
                   width: 310,
                   height: 50,
                   child: RaisedButton(
+                    key: Key('start-button'),
                     child: Text("Start", style: TextStyle(color: Colors.white)),
                     color: Color(0xff4C748B),
                     shape: RoundedRectangleBorder(

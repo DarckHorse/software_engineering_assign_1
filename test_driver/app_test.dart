@@ -3,6 +3,19 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
 void main() {
+  final coffeeRecipesTextFinder = find.byValueKey("coffee-recipes-text");
+  final coffeeRecipeBtnFinder = find.byValueKey("test-recipe");
+  final enjoyTextFinder = find.byValueKey("enjoy-text");
+  final startBtnFinder = find.byValueKey("start-button");
+  final stepsTextFinder = find.byValueKey('steps-text');
+  final doneTextFinder = find.byValueKey("done-text");
+  final doneBtnFinder = find.byValueKey("done-button");
+  final coffeeResourceTextFinder = find.byValueKey("coffee-link");
+  final grindersResourceTextFinder = find.byValueKey("grinders-link");
+  final kettlesResourceTextFinder = find.byValueKey("kettles-link");
+  final dripperResourceTextFinder = find.byValueKey("homebrew-dripper-link");
+  final backBtnFinder = find.byValueKey("back-button");
+
   group('Homebrew Dripper App', () {
     // First, define the Finders and use them to locate widgets from the
     // test suite. Note: the Strings provided to the `byValueKey` method must
@@ -25,6 +38,76 @@ void main() {
 
     test('starts at 0', () async {
       // Use the `driver.getText` method to verify the counter starts at 0.
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+    });
+
+    test('Make sure recipe follows through to done screen and back', () async {
+      // make sure you area on the selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+      // select test recipe
+      await driver.tap(coffeeRecipeBtnFinder);
+      // make sure youre on the detail screen
+      expect(await driver.getText(enjoyTextFinder),
+          "It adds a boost of caffeine to your standard coffee experience");
+      //tap the start button
+      await driver.tap(startBtnFinder);
+      //make sure your on the step screen
+      expect(await driver.getText(stepsTextFinder), "Steps");
+      //wait 25 seconds
+      await Future.delayed(const Duration(seconds: 5), () {});
+      // make sure youre on the done screen
+      expect(await driver.getText(doneTextFinder), "done");
+      // tap the done button
+      await driver.tap(doneBtnFinder);
+      // make sure you area on the selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+    });
+
+    group('resource links', () {
+      test('make sure coffee resource link exists', () async {
+        // make sure you area on the selection screen
+        expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+        // make sure the resource link is there
+        expect(await driver.getText(coffeeResourceTextFinder), "Coffee");
+      });
+      test('make sure grinders resource link exists', () async {
+        // make sure you area on the selection screen
+        expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+        // make sure the resource link is there
+        expect(await driver.getText(grindersResourceTextFinder), "Grinders");
+      });
+      test('make sure kettles resource link exists', () async {
+        // make sure you area on the selection screen
+        expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+        // make sure the resource link is there
+        expect(await driver.getText(kettlesResourceTextFinder), "Kettles");
+      });
+      test('make sure homebrew dripper resource link exists', () async {
+        // make sure you area on the selection screen
+        expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+        // make sure the resource link is there
+        expect(await driver.getText(dripperResourceTextFinder),
+            "Homebrew Dripper");
+      });
+    });
+
+    test(
+        'make sure the back button form the details screen takes you back to the selection screen',
+        () async {
+      // make sure im on the selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+
+      // tap on a recipe
+      await driver.tap(coffeeRecipeBtnFinder);
+
+      // make sure youre on the details screen
+      expect(await driver.getText(enjoyTextFinder),
+          "It adds a boost of caffeine to your standard coffee experience");
+
+      // tap the back button
+      await driver.tap(backBtnFinder);
+
+      // make sure im on the selection screen
       expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
     });
   });
