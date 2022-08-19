@@ -17,7 +17,8 @@ CoffeeRecipe makeSweetMariasRecipe() {
       360,
       "finely ground coffee",
       "The original recipe: makes one delicious cup",
-      steps);
+      steps,
+      "santa-maria-recipe");
   return recipe;
 }
 
@@ -35,7 +36,8 @@ CoffeeRecipe makeTestRecipe() {
       360,
       "finely ground coffee",
       "The original recipe: makes one delicious cup",
-      steps);
+      steps,
+      "test-recipe");
   return recipe;
 }
 
@@ -46,8 +48,14 @@ CoffeeRecipe makeStrongEnoughRecipe() {
     RecipeStep("Stir", 05),
     RecipeStep("Cover and wait", 240),
   ];
-  CoffeeRecipe recipe = CoffeeRecipe("Strong Enough", 43, 250,
-      "coarse ground coffee", "it's bittersweet", steps);
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "Strong Enough",
+      43,
+      250,
+      "coarse ground coffee",
+      "it's bittersweet",
+      steps,
+      'strong-enough-recipe');
   return recipe;
 }
 
@@ -60,8 +68,14 @@ CoffeeRecipe makeEspressoRecipe() {
     RecipeStep("Cover and wait", 120),
     RecipeStep("Stir", 05),
   ];
-  CoffeeRecipe recipe = CoffeeRecipe("Espresso", 64, 125,
-      "medium-fine ground coffee", "A kickstart to your day", steps);
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "Espresso",
+      64,
+      125,
+      "medium-fine ground coffee",
+      "A kickstart to your day",
+      steps,
+      'espresso-recipe');
   return recipe;
 }
 
@@ -94,15 +108,4 @@ class CoffeeData {
     else
       return "${min}:${sec}";
   }
-
-  static RecipeStep testStep = RecipeStep("", -1);
-  static RecipeStep nullStep = RecipeStep(null, null);
-  static List<RecipeStep> testStepsWithNull = [testStep, nullStep];
-
-  static List<RecipeStep> testSteps = [testStep, testStep];
-
-  static CoffeeRecipe testRecipe =
-      new CoffeeRecipe("", -1, 0, "", "", testSteps);
-  static CoffeeRecipe nullRecipe =
-      new CoffeeRecipe(null, null, null, null, null, testSteps);
 }

@@ -10,7 +10,6 @@ class RecipeSelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: ListView(
         children: [
           Padding(padding: EdgeInsets.all(24.5)),
@@ -57,15 +56,13 @@ class RecipeList extends StatelessWidget {
             width: 3,
           ),
           borderRadius: BorderRadius.circular(10.0),
-          
         ),
         child: Column(
           children: [
-            
-            for (CoffeeRecipe recipe in recipes) 
+            for (CoffeeRecipe recipe in recipes)
               Column(
                 children: [
-                 Container(                    
+                  Container(
                     height: 1,
                     child: Divider(
                       color: Color(0xFF4C748B),
@@ -74,12 +71,13 @@ class RecipeList extends StatelessWidget {
                   ),
                   ListTile(
                       title: Text(recipe.name,
+                          key: Key(recipe.key),
                           style: TextStyle(
                               color: Color(0xff4C748B),
                               fontWeight: FontWeight.w400,
                               fontSize: 17)),
-                      trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
-                      
+                      trailing:
+                          Icon(Icons.chevron_right, color: Color(0xff4C748B)),
                       onTap: () {
                         Navigator.push(
                           context,
@@ -91,7 +89,6 @@ class RecipeList extends StatelessWidget {
               ),
           ],
         ));
-        
   }
 }
 
@@ -112,57 +109,61 @@ class ResourceList extends StatelessWidget {
               onTap: () => launch(
                   'https://www.gourmetcoffees.com/?gclid=CjwKCAjwo_KXBhAaEiwA2RZ8hFEFqJHq246wm35UUSFNHXE53Gmintks5Q7QqzNn4_FhWxmNpdsNVhoCi0YQAvD_BwE'),
               title: Text("Coffee",
+                  key: Key('coffee-link'),
                   style: TextStyle(
                       color: Color(0xff4C748B),
                       fontWeight: FontWeight.w400,
                       fontSize: 17)),
               trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
             ),
-             Container(                    
-                    height: 1,
-                    child: Divider(
-                      color: Color(0xFF4C748B),
-                      thickness: 1,
-                    ),
-                  ),
+            Container(
+              height: 1,
+              child: Divider(
+                color: Color(0xFF4C748B),
+                thickness: 1,
+              ),
+            ),
             ListTile(
               onTap: () => launch(
                   'https://nymag.com/strategist/article/best-coffee-grinders.html'),
               title: Text("Grinders",
+                  key: Key('grinder-link'),
                   style: TextStyle(
                       color: Color(0xff4C748B),
                       fontWeight: FontWeight.w400,
                       fontSize: 17)),
               trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
             ),
-             Container(                    
-                    height: 1,
-                    child: Divider(
-                      color: Color(0xFF4C748B),
-                      thickness: 1,
-                    ),
-                  ),
+            Container(
+              height: 1,
+              child: Divider(
+                color: Color(0xFF4C748B),
+                thickness: 1,
+              ),
+            ),
             ListTile(
               onTap: () =>
                   launch('https://nypost.com/article/best-tea-kettles/'),
               title: Text("Kettles",
+                  key: Key('kettles-link'),
                   style: TextStyle(
                       color: Color(0xff4C748B),
                       fontWeight: FontWeight.w400,
                       fontSize: 17)),
               trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
             ),
-             Container(                    
-                    height: 1,
-                    child: Divider(
-                      color: Color(0xFF4C748B),
-                      thickness: 1,
-                    ),
-                  ),
+            Container(
+              height: 1,
+              child: Divider(
+                color: Color(0xFF4C748B),
+                thickness: 1,
+              ),
+            ),
             ListTile(
               onTap: () => launch(
                   'https://www.homegrounds.co/best-pour-over-coffee-makers/'),
               title: Text("Homebrew Dripper",
+                  key: Key('homebrew-dripper-link'),
                   style: TextStyle(
                       color: Color(0xff4C748B),
                       fontWeight: FontWeight.w400,
