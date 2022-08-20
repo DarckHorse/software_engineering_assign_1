@@ -132,6 +132,12 @@ void main() {
       // grab timer text again
       final timer2TextFinder = find.byValueKey('timer-text');
       expect(await driver.getText(timer2TextFinder), '1');
+      // make sure you are on done screen
+      expect(await driver.getText(doneTextFinder), "done");
+      // tap the done button
+      await driver.tap(doneBtnFinder);
+      // make sure you area on the selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
     });
   });
 }
