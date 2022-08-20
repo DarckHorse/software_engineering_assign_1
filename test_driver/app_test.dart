@@ -3,8 +3,9 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final coffeeRecipesTextFinder = find.byValueKey("coffee-recipes-text");
-  final coffeeRecipeBtnFinder = find.byValueKey("test-recipe");
+  final testRecipe1BtnFinder = find.byValueKey("test-recipe-1");
+  final testRecipe2BtnFinder = find.byValueKey("test-recipe-1");
+  final testRecipe3BtnFinder = find.byValueKey("test-recipe-1");
   final enjoyTextFinder = find.byValueKey("enjoy-text");
   final startBtnFinder = find.byValueKey("start-button");
   final stepsTextFinder = find.byValueKey('steps-text');
@@ -41,11 +42,58 @@ void main() {
       expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
     });
 
-    test('Make sure recipe follows through to done screen and back', () async {
+    test('Make sure test recipe 1 follows through to done screen and back',
+        () async {
       // make sure you area on the selection screen
       expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
       // select test recipe
-      await driver.tap(coffeeRecipeBtnFinder);
+      await driver.tap(testRecipe1BtnFinder);
+      // make sure youre on the detail screen
+      expect(await driver.getText(enjoyTextFinder),
+          "It adds a boost of caffeine to your standard coffee experience");
+      //tap the start button
+      await driver.tap(startBtnFinder);
+      //make sure your on the step screen
+      expect(await driver.getText(stepsTextFinder), "Steps");
+      //wait 25 seconds
+      await Future.delayed(const Duration(seconds: 5), () {});
+      // make sure youre on the done screen
+      expect(await driver.getText(doneTextFinder), "done");
+      // tap the done button
+      await driver.tap(doneBtnFinder);
+      // make sure you area on the selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+    });
+
+    test('Make sure test recipe 2 follows through to done screen and back',
+        () async {
+      // make sure you area on the selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+      // select test recipe
+      await driver.tap(testRecipe2BtnFinder);
+      // make sure youre on the detail screen
+      expect(await driver.getText(enjoyTextFinder),
+          "It adds a boost of caffeine to your standard coffee experience");
+      //tap the start button
+      await driver.tap(startBtnFinder);
+      //make sure your on the step screen
+      expect(await driver.getText(stepsTextFinder), "Steps");
+      //wait 25 seconds
+      await Future.delayed(const Duration(seconds: 5), () {});
+      // make sure youre on the done screen
+      expect(await driver.getText(doneTextFinder), "done");
+      // tap the done button
+      await driver.tap(doneBtnFinder);
+      // make sure you area on the selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+    });
+
+    test('Make sure test recipe 3 follows through to done screen and back',
+        () async {
+      // make sure you area on the selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+      // select test recipe
+      await driver.tap(testRecipe3BtnFinder);
       // make sure youre on the detail screen
       expect(await driver.getText(enjoyTextFinder),
           "It adds a boost of caffeine to your standard coffee experience");
@@ -98,7 +146,7 @@ void main() {
       expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
 
       // tap on a recipe
-      await driver.tap(coffeeRecipeBtnFinder);
+      await driver.tap(testRecipe1BtnFinder);
 
       // make sure youre on the details screen
       expect(await driver.getText(enjoyTextFinder),

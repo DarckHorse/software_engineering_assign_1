@@ -1,6 +1,4 @@
-import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
-import 'package:homebrew_dripper/utils/coffee_data.dart';
 import 'package:test/test.dart';
 
 void main() {

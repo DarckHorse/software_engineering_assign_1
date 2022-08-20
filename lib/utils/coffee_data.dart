@@ -2,6 +2,7 @@
 
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
+import 'package:homebrew_dripper/utils/globals.dart' as globals;
 
 CoffeeRecipe makeSweetMariasRecipe() {
   List<RecipeStep> steps = [
@@ -43,9 +44,9 @@ CoffeeRecipe makeBlackEyeRecipe() {
   return recipe;
 }
 
-CoffeeRecipe makeTestRecipe() {
+CoffeeRecipe makeTestRecipe1() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 128g of fine ground coffee", 1),
+    RecipeStep("Add 128g of fine ground coffee", 10),
     RecipeStep("Add 250g of near boiling water", 1),
     RecipeStep("Cover and wait", 1),
     RecipeStep("Stir", 1),
@@ -53,13 +54,55 @@ CoffeeRecipe makeTestRecipe() {
     RecipeStep("Stir", 1),
   ];
   CoffeeRecipe recipe = CoffeeRecipe(
-      "Test Recipe",
+      "Test Recipe 1",
       128,
       250,
       "finely ground coffee",
       "It adds a boost of caffeine to your standard coffee experience",
       steps,
-      "test-recipe");
+      "test-recipe-1");
+
+  return recipe;
+}
+
+CoffeeRecipe makeTestRecipe2() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 128g of fine ground coffee", 10),
+    RecipeStep("Add 250g of near boiling water", 1),
+    RecipeStep("Cover and wait", 1),
+    RecipeStep("Stir", 1),
+    RecipeStep("Cover again and wait", 1),
+    RecipeStep("Stir", 1),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "Test Recipe 2",
+      128,
+      250,
+      "finely ground coffee",
+      "It adds a boost of caffeine to your standard coffee experience",
+      steps,
+      "test-recipe-2");
+
+  return recipe;
+}
+
+CoffeeRecipe makeTestRecipe3() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 128g of fine ground coffee", 10),
+    RecipeStep("Add 250g of near boiling water", 1),
+    RecipeStep("Cover and wait", 1),
+    RecipeStep("Stir", 1),
+    RecipeStep("Cover again and wait", 1),
+    RecipeStep("Stir", 1),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "Test Recipe 3",
+      128,
+      250,
+      "finely ground coffee",
+      "It adds a boost of caffeine to your standard coffee experience",
+      steps,
+      "test-recipe-3");
 
   return recipe;
 }
@@ -103,13 +146,20 @@ CoffeeRecipe makeEspressoRecipe() {
 }
 
 List<CoffeeRecipe> getAllRecipes() {
-  return [
-    makeSweetMariasRecipe(),
-    makeEspressoRecipe(),
-    makeStrongEnoughRecipe(),
-    makeBlackEyeRecipe(),
-    makeTestRecipe()
-  ];
+  if (globals.areWeInIntegrationTest) {
+    return [
+      makeTestRecipe1(),
+      makeTestRecipe2(),
+      makeTestRecipe3(),
+    ];
+  } else {
+    return [
+      makeSweetMariasRecipe(),
+      makeEspressoRecipe(),
+      makeStrongEnoughRecipe(),
+      makeBlackEyeRecipe(),
+    ];
+  }
 }
 
 class CoffeeData {
