@@ -163,7 +163,7 @@ void main() {
       // make sure on selection screen
       expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
       // tap recipe
-      await driver.tap(coffeeRecipeBtnFinder);
+      await driver.tap(testRecipe1BtnFinder);
       // make sure youre on the details screen
       expect(await driver.getText(enjoyTextFinder),
           "It adds a boost of caffeine to your standard coffee experience");
@@ -192,7 +192,7 @@ void main() {
       // make sure you are on the selection screen
       expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
       // select test recipe
-      await driver.tap(coffeeRecipeBtnFinder);
+      await driver.tap(testRecipe1BtnFinder);
       // make sure youre on the detail screen
       expect(await driver.getText(enjoyTextFinder),
           "It adds a boost of caffeine to your standard coffee experience");
