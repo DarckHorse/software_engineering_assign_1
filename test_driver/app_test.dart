@@ -110,5 +110,28 @@ void main() {
       // make sure im on the selection screen
       expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
     });
+
+    test('make sure timer counts down', () async {
+      // make sure on selection screen
+      expect(await driver.getText(coffeeRecipesTextFinder), "Coffee Recipes");
+      // tap recipe
+      await driver.tap(coffeeRecipeBtnFinder);
+      // make sure youre on the details screen
+      expect(await driver.getText(enjoyTextFinder),
+          "It adds a boost of caffeine to your standard coffee experience");
+      // tap start button
+      await driver.tap(startBtnFinder);
+      //make sure your on the step screen
+      expect(await driver.getText(stepsTextFinder), "Steps");
+      // grab timer text
+      final timer1TextFinder = find.byValueKey('timer-text');
+      expect(await driver.getText(timer1TextFinder), '10');
+
+      // wait 9 sec
+      await Future.delayed(const Duration(seconds: 9), () {});
+      // grab timer text again
+      final timer2TextFinder = find.byValueKey('timer-text');
+      expect(await driver.getText(timer2TextFinder), '1');
+    });
   });
 }

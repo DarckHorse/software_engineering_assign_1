@@ -45,7 +45,7 @@ CoffeeRecipe makeBlackEyeRecipe() {
 
 CoffeeRecipe makeTestRecipe() {
   List<RecipeStep> steps = [
-    RecipeStep("Add 128g of fine ground coffee", 1),
+    RecipeStep("Add 128g of fine ground coffee", 10),
     RecipeStep("Add 250g of near boiling water", 1),
     RecipeStep("Cover and wait", 1),
     RecipeStep("Stir", 1),
